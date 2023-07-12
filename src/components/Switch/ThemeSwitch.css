@@ -1,0 +1,12 @@
+.ToggleIcon{
+    cursor: pointer;
+}
+.ToggleIcon svg{
+    width: 30px;
+    height: 30px;
+    fill: var(--text-color);
+    transition: fill 0.3s ease;
+}
+.ToggleIcon svg:hover{
+    fill: var(--secondary-color);
+}
