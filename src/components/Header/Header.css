@@ -1,170 +1,77 @@
-.header-container {
+header{
+    box-sizing: border-box;
+    padding-top: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 150px;
+    color: #ececec;
+    position: fixed;
+    z-index: 100;
 }
-
-.header-title h1 {
-    margin: 0;
-}
-
-.header-links {
+.HeaderLogo{
     display: flex;
-    justify-content: space-around;
-    width: 30%;
+    flex-direction: column;
+    font-family: var(--title);
+    font-size: 21pt;
     font-weight: 600;
+    width: 78px;
+    line-height: 24px;
 }
-
-.header-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    transition: color 0.3s ease;
-    position: relative;
+.LastName{
+    text-align: right;
 }
-
-.header-links a:hover {
-    color: var(--secondary-color);
-}
-
-.header-links a::before {
-    content: '';
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: var(--secondary-color);
-    position: absolute;
-    bottom: 82px;
-    left: 0;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.header-links a:hover::before {
-    transform: scaleX(1);
-}
-
-.drawer-toggle {
-    display: none;
-}
-
-.drawer {
-    display: none;
-}
-
-.drawer-toggle-button {
-    appearance: none;
-    background-color: transparent;
-    border: none;
+.DrawerIcon {
     cursor: pointer;
 }
-
-.drawer-toggle-icon {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background-color: var(--text-color);
-    position: relative;
-    transition: transform 0.3s ease;
+.DrawerIcon svg {
+    padding-top: 10px;
 }
-
-.drawer-toggle-icon:before,
-.drawer-toggle-icon:after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: var(--text-color);
+.DrawerMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-color2);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+.DrawerMenu.open {
+    opacity: 1;
+    visibility: visible;
+}
+.DrawerClose {
     position: absolute;
-    transition: transform 0.3s ease;
+    top: 30px;
+    right: 35px;
+    cursor: pointer;
 }
-
-.drawer-toggle-icon:before {
-    top: -6px;
+.DrawerMenu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
-
-.drawer-toggle-icon:after {
-    bottom: -6px;
+.DrawerMenu ul a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 38pt;
 }
-
-.drawer-toggle-icon.open {
-    transform: rotate(45deg);
-}
-
-.drawer-toggle-icon.open:before {
-    transform: translateY(6px) rotate(90deg);
-}
-
-.drawer-toggle-icon.open:after {
-    transform: translateY(-6px) rotate(90deg);
-}
-
-@media (max-width: 768px) {
-    .header-links {
-        display: none;
+@media screen and (min-width: 770px) {
+    .DrawerMenu.open {
+        width: 30vw;
     }
-
-    .drawer-toggle {
-        display: block;
-    }
-
-    .drawer {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--bg-color);
-        padding: 10px;
-        transition: transform 0.3s ease;
-        transform: translateX(-100%);
-        z-index: 999;
-    }
-
-    .drawer .page-width {
-        max-width: 90%;
-        height: 100%;
-    }
-
-    .drawer.open {
-        transform: translateX(0);
-    }
-
-    .drawer .drawer-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .drawer-logo{
-        width: 70px;
-    }
-
-    .drawer .drawer-links {
-        display: flex;
-        flex-direction: column;
-        gap: 100px;
-        margin-top: 100px;
-        height: 100%;
-    }
-
-    .drawer a {
-        display: flex;
-        justify-content: center;
-        color: var(--text-color);
-        transition: color 0.3s ease;
-        text-decoration: none;
-        font-size: 60px;
-        text-transform: uppercase;
-    }
-
-    .drawer a:hover {
-        color: var(--secondary-color);
-    }
-}
-
-@media screen and (min-width: 769px) {
-    .header-drawer-toggle {
-        display: none;
+    .DrawerMenu ul a {
+        font-size: 18pt;
     }
 }

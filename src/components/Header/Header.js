@@ -1,60 +1,34 @@
-import { useState } from 'react';
-import ThemeSwitch from '../Switch/ThemeSwitch';
+import { useState, forwardRef } from 'react';
 import './Header.css';
-import { ThemeContext } from '../../App';
-import { useContext } from 'react';
-import logo from '../../img/qdalogo.png'
-export default function Header() {
-    const { toggleTheme } = useContext(ThemeContext);
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+import DrawerLines from './DrawerLines';
+import DrawerClose from './DrawerClose';
+const Header = forwardRef(({ isTransformed }, ref) => {
+    const [drawer, setDrawer] = useState(false);
 
-    const handleDrawerToggle = () => {
-        setIsDrawerOpen(!isDrawerOpen);
+    const toggleDrawer = () => {
+        setDrawer(!drawer);
     };
 
     return (
         <header>
-            <div className="header-container">
-                <div className="header-drawer-toggle">
-                    <button className="drawer-toggle-button" onClick={handleDrawerToggle}>
-                        <span className={`drawer-toggle-icon ${isDrawerOpen ? 'open' : ''}`}></span>
-                    </button>
-                </div>
-                <div className='header-links'>
-                    <a href="#contact">Contact</a>
-                    <a href="#contact">Github</a>
-                </div>
-                <div className="header-title">
-                    <a href='#'><img src={logo} alt="logo" className='logo' /></a>
-                </div>
-                <div className='header-links'>
-                    <a href="#contact">Contact</a>
-                    <a href="#contact">Github</a>
-                </div>
-                <div className="header-switch">
-                    <ThemeSwitch onClick={toggleTheme} />
-                </div>
+            <div className='HeaderLogo'>
+                <span className="FirstName">Quent</span>
+                <span className="LastName">Dean</span>
             </div>
-            <div className={`drawer ${isDrawerOpen ? 'open' : ''}`}>
-                <div className='page-width'>
-                    <div className="drawer-header">
-                        <div className="drawer-title">
-                            <img src={logo} alt="logo" className='drawer-logo' />
-                        </div>
-                        <div className="drawer-toggle">
-                            <button className="drawer-toggle-button" onClick={handleDrawerToggle}>
-                                <span className={`drawer-toggle-icon ${isDrawerOpen ? 'open' : ''}`}></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div className="drawer-links">
-                        <a href="#about">About</a>
-                        <a href="#projects">Projects</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#contact">Github</a>
-                    </div>
-                </div>
+            <div className='DrawerIcon' onClick={toggleDrawer}>
+                <DrawerLines />
             </div>
+            <nav className={`DrawerMenu ${drawer ? 'open' : ''}`}>
+                <ul>
+                    <a href="#root"><li>Home</li></a>
+                    <a href="#root"><li>About</li></a>
+                    <a href="#root"><li>Projects</li></a>
+                </ul>
+                <div className='DrawerClose' onClick={toggleDrawer}>
+                    <DrawerClose />
+                </div>
+            </nav>
         </header>
     );
-}
+});
+export default Header;
