@@ -32,11 +32,32 @@ html, body, #root {
 
 header{
   width: 100%;
-  padding: 0 34px;
+  padding: 0 16px;
 }
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Playfair Display', serif;
   font-weight: 600;
   margin: 0;
+}
+.PageWidth{
+  width: 97%;
+  margin: 0 auto;
+}
+p{
+  line-height: 1.4rem;
+  opacity: 0.6;
+  font-size: 18px;
+}
+h2{
+  font-size: 64px;
+  text-align: center;
+}
+.SectionPageWidth{
+  width: 80%;
+  margin: 0 auto;
+}
+.LinkDisabled{
+  cursor: not-allowed !important;
+  opacity: 0.5;
 }

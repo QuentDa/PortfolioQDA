@@ -1,0 +1,68 @@
+.AboutSection {
+    background: var(--bg-color);
+}
+
+.AboutSection .PageWidth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.AboutContent{
+    overflow: hidden;
+    max-height: 870px;
+}
+.AboutContent p {
+    max-width: 40%;
+    padding: 50px 0;
+    margin: 0 auto;
+    filter: blur(4px);
+    animation: slide-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.SectionPicker {
+    display: flex;
+    cursor: pointer;
+    flex-wrap: wrap;
+}
+
+.TheDeveloper,
+.ThePerson {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.disabled {
+    opacity: 0.3;
+}
+
+@keyframes slide-top {
+    0% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+        filter: blur(0);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .AboutContent p{
+        max-width: 60%;
+    }
+}
+@media screen and (max-width: 957px) {
+    .SectionPicker{
+        justify-content: center;
+        line-height: 2.5rem;
+    }
+}
+@media screen and (max-width: 543px) {
+    .AboutSection .PageWidth{
+        width: 90%;
+    }
+    .AboutContent p{
+        max-width: 80%;
+        padding-top: 40px;
+    }
+}

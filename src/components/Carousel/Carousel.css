@@ -1,0 +1,233 @@
+/* MAIN SECTION */
+.CarouselSection {
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 200px 0;
+}
+.CarouselSection span {
+    cursor: pointer;
+}
+
+/*BLOCKS WRAPPER*/
+.BlocksWrapper {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+/*MAIN BLOCK*/
+.MainBlock {
+    width: 80%;
+}
+
+.MainBlockInfo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 75%;
+    height: 100%;
+    gap: 50px;
+    bottom: 0;
+    left: 0; /* Décaler le bloc à gauche de 50% de la largeur de l'image */
+    color: white;
+    opacity: 1;
+}
+.MainBlockInfo h2{
+    font-size: 32px;
+}
+.MainBlockInfo p{
+    opacity: 0.7;
+}
+
+.ImgWrapper {
+    position: relative;
+    background: var(--bg-color);
+    width: 95%;
+    height: 800px;
+    transition: opacity 0.5s ease;
+}
+.ImgWrapper.loading {
+    opacity: 0.6; /* Réduire l'opacité pendant le chargement */
+}
+.ImgWrapper img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1; /* Définir l'opacité initiale à 0 */
+    transition: opacity 0.6s ease-in; /* Ajouter une transition en fondu */
+}
+/* Lorsque la classe loading est active, réglez l'opacité à 1 pour obtenir le fondu en entrée */
+.ImgWrapper.loading img {
+    opacity: 0;
+}
+/*LINKS*/
+.LinkWrapper{
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.LinkWrapper a{
+    color: white;
+    text-decoration: none;
+}
+.LinkWrapper a svg{
+    transition: 0.5s;
+}
+.MainBlock:hover .LinkWrapper {
+    opacity: 1;
+    visibility: visible;
+}
+.MainBlock:hover .ImgWrapper img{
+    opacity: 0.2;
+}
+.LinkWrapper a svg:hover{
+    transform: scale(1.2);
+}
+
+/*SECONDARY BLOCKS WRAPPER*/
+.SecondaryBlocks {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    position: relative;
+    width: 20%;
+}
+/*TITLE BLOCK*/
+.TitleContainerD{
+    display: none;
+}
+.TitleContainer{
+    position: relative;
+}
+.BackgroundTitle{
+    position: absolute;
+    left: -450px;
+    top: -150px;
+    opacity: 0.1;
+    font-size: 160px;
+}
+/*SINGLE SECONDARY BLOCK*/
+.SecondaryBlock {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    height: 100px;
+    margin-left: -200px;
+    background: var(--bg-color);
+    border-radius: 5px;
+    transition: .5s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.SecondaryBlock:hover{
+    background: var(--text-color);
+    color: var(--bg-color2);
+}
+.SecondaryBlock.active{
+    background: var(--text-color);
+    color: var(--bg-color2);
+}
+.SecondaryBlockTitle{
+    width: 150px;
+}
+.SecondaryBlockContent{
+    font-size: 16px;
+    opacity: 0.8;
+}
+.SecondaryBlockTechno{
+    font-size: 14px;
+}
+.SecondaryBlockLink{
+    font-size: 13.5px;
+    display: flex;
+}
+.SecondaryBlockLink svg{
+    width: 20px;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 1800px) {
+    .BackgroundTitle{
+        left: -600px;
+        top: -150px;
+    }
+    .TitleContainer h2:not(.BackgroundTitle){
+        font-size: 32px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .MainBlock {
+        width: 95%;
+        display: flex;
+        justify-content: center;
+    }
+    .CarouselSection {
+        padding: 250px 0;
+    }
+    .BlocksWrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+    .MainBlockInfo{
+        width: 100%;
+        bottom: 300px;
+    }
+    .ImgWrapper{
+        height: 450px;
+    }
+    .SecondaryBlocks{
+        width: 100%;
+        align-items: center;
+    }
+    .SecondaryBlock {
+        margin-left: 0;
+        width: 70%;
+    }
+    .TitleContainerD{
+        display: flex;
+        padding-bottom: 45px;
+    }
+    .TitleContainerM{
+        display: none;
+    }
+    .BackgroundTitleD{
+        left: -250px;
+        top: -80px;
+        font-size: 100px;
+    }
+}
+@media screen and (max-width: 600px){
+    .BackgroundTitleD{
+        left: -150px;
+        top: -50px;
+        font-size: 72px;
+    }
+    .SecondaryBlock {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .BackgroundTitleD{
+        left: -80px;
+        top: -40px;
+        font-size: 64px;
+    }
+    .SecondaryBlockTitle{
+        font-size: 16px;
+    }
+    .SecondaryBlockContent{
+        font-size: 14px;
+    }
+}

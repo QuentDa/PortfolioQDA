@@ -43,8 +43,9 @@
 .SubTitle{
     font-weight: 300;
     font-size: 34pt;
-    opacity: 0.2;
+    opacity: 0.4;
     padding-left: 10%;
+    font-family: 'Mulish', sans-serif;
 }
 .heroDescription{
     opacity: 0.4;

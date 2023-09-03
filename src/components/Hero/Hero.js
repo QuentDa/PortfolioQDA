@@ -9,7 +9,7 @@ export default function Hero() {
                 <img src={Background} alt="Quentin de Andrade" className="heroImg" />
             </div>
             <div className="heroText">
-                <h2 className="SubTitle">Front-end</h2>
+                <h2 className="SubTitle">Front-End</h2>
                 <h1 className="MainTitle">WEB DEVELOPER</h1>
                 <p className="heroDescription">
                     ‟I design and code beautifully simple things, and I love what I do.”
